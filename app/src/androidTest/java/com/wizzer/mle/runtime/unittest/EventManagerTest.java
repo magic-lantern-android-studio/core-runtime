@@ -25,6 +25,8 @@ public class EventManagerTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		// Make sure that default, global events are cleared for these tests.
+		MleEventManager.getInstance().clear();
 	}
 
 	/**

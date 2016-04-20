@@ -88,7 +88,7 @@ public class ResourceManagerTest extends TestCase
 	    	id = ResourceManager.getResourceId(R.layout.class, "main");
 	    	TestCase.assertEquals(0x7f030000, id);
 	    	id = ResourceManager.getResourceId(R.string.class, "app_name");
-	    	TestCase.assertEquals(0x7f040001, id);
+	    	TestCase.assertEquals(0x7f040000, id);
 
 	    } catch (MleRuntimeException ex)
 	    {
