@@ -200,4 +200,10 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
 			}
 		}
 	}
+
+	@Override
+	public void render()
+	{
+		// The default behavior is that there is nothing to render.
+	}
 }

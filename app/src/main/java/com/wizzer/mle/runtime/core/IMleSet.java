@@ -30,4 +30,9 @@
 package com.wizzer.mle.runtime.core;
 
 public interface IMleSet
-{}
+{
+    /**
+     * Tell the set to render itself.
+     */
+    public void render();
+}
