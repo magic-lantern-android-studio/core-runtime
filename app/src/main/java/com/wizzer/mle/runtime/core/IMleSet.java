@@ -32,7 +32,18 @@ package com.wizzer.mle.runtime.core;
 public interface IMleSet
 {
     /**
-     * Tell the set to render itself.
+     * Initialize rendering. This is usually called just once.
+     *
+     * @throws MleRuntimeException this exception is thrown if an error occurs while
+     * initializing rendering.
      */
-    public void render();
+    public void initRender() throws MleRuntimeException;
+
+    /**
+     * Tell the set to render itself.
+     *
+     * @throws MleRuntimeException This exception is thrown if an error occurs while
+     * rendering the Set.
+     */
+    public void render() throws MleRuntimeException;
 }

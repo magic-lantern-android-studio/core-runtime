@@ -202,8 +202,17 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
 	}
 
 	@Override
+	public void initRender()
+        throws MleRuntimeException
+	{
+        // The default behavior is that there is nothing to initialize.
+	}
+
+	@Override
 	public void render()
+        throws MleRuntimeException
 	{
 		// The default behavior is that there is nothing to render.
 	}
+
 }
