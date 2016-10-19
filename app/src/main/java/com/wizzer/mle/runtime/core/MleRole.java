@@ -31,7 +31,6 @@ package com.wizzer.mle.runtime.core;
 // Import standard Java packages.
 
 // Import Magic Lantern packages.
-import com.wizzer.mle.runtime.core.MleActor;
 //import com.wizzer.mle.runtime.dpp.MleDppLoader;
 
 
@@ -94,8 +93,8 @@ import com.wizzer.mle.runtime.core.MleActor;
  * </p>
  * 
  * @see MleActor
- * @see MleDppLoader#loadGroup
- * @see MleDppLoader#loadScene
+ * @see com.wizzer.mle.runtime.dpp.MleDppLoader#mleLoadGroup(int)
+ * @see com.wizzer.mle.runtime.dpp.MleDppLoader#mleLoadScene(int)
  *
  * @author  Mark S. Millard
  * @version 1.0
@@ -103,10 +102,10 @@ import com.wizzer.mle.runtime.core.MleActor;
 public class MleRole extends Object implements IMleRole
 {
     /** A reference to the actor that is rendered by this role. */
-    protected MleActor m_actor;
+    protected IMleActor m_actor;
 
     /** A reference to the role's set. */
-    protected MleSet m_set;
+    protected IMleSet m_set;
 
     /**
      * A factory method for creating a role.
@@ -136,7 +135,7 @@ public class MleRole extends Object implements IMleRole
      *
      * @param actor The actor for this role.
      */
-    public MleRole(MleActor actor)
+    public MleRole(IMleActor actor)
     {
 		m_actor = actor;
 		actor.attachRole(this);
@@ -150,7 +149,7 @@ public class MleRole extends Object implements IMleRole
      * 
      * @param actor The actor to set.
      */
-    public void setActor(MleActor actor)
+    public void setActor(IMleActor actor)
     {
 		m_actor = actor;
 		actor.attachRole(this);        
@@ -166,7 +165,7 @@ public class MleRole extends Object implements IMleRole
      *
      * @return A reference to the actor for this role is returned.
      */
-    public MleActor getActor()
+    public IMleActor getActor()
     {
     	return m_actor;
     }
@@ -188,12 +187,34 @@ public class MleRole extends Object implements IMleRole
 
     /**
      * Add a child to this role.
-     *
+     * <p>
      * This method is used to attach other roles
      * to this role.  It should be overridden by sub-classes 
      * of MleRole for which there's a semantic policy for attachment.
-     * The base class implemetation does nothing.
+     * The base class implementation does nothing.
+     * </p>
      */
-    protected void addChild(MleRole child) {}
+    protected void addChild(IMleRole child) {}
 
+    /**
+     * Initialize rendering.
+     * <p>
+     * By default, nothing is initialized.
+     * </p>
+     *
+     * @throws MleRuntimeException This exception is thrown when there is an issue
+     * with initializing rendering on the Role.
+     */
+    public void initRender() throws MleRuntimeException {}
+
+    /**
+     * Render the role.
+     * <p>
+     * By default, nothing is rendered.
+     * </p>
+     *
+     * @throws MleRuntimeException This exception is thrown when an error occurs
+     * while rendering the Role.
+     */
+    public void render() throws MleRuntimeException {}
 }

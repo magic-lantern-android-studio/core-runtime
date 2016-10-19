@@ -60,8 +60,8 @@ import com.wizzer.mle.runtime.event.MlePropChangeEvent;
  * </p>
  *
  * @see MleRole
- * @see MleDppLoader#mleLoadGroup(int)
- * @see MleDppLoader#mleLoadScene(int)
+ * @see com.wizzer.mle.runtime.dpp.MleDppLoader#mleLoadGroup(int)
+ * @see com.wizzer.mle.runtime.dpp.MleDppLoader#mleLoadScene(int)
  *
  * @author  Mark S. Millard
  * @version 1.0
@@ -69,7 +69,7 @@ import com.wizzer.mle.runtime.event.MlePropChangeEvent;
 public abstract class MleActor extends Object implements IMleObject, IMleActor
 {
     /** A reference to the role for this actor to play. */
-    protected MleRole m_role = null;
+    protected IMleRole m_role = null;
     /** The collection of "PropChange" event listeners, per property. */
     protected HashMap<String,Vector<IMlePropChangeListener>> m_propChangeListeners;
     
@@ -85,7 +85,7 @@ public abstract class MleActor extends Object implements IMleObject, IMleActor
     /**
      * Get the actor's associated role.
      * <p>
-     * Returns a pointer to the actor's role, if any.
+     * Returns a reference to the actor's role, if any.
      * Use getRole() to get the actor's role instance,
      * if any. When loading an actor instance using MleDppLoader.loadGroup()
      * or MleLaod.loadScene(), the role, if any, will be set
@@ -97,7 +97,7 @@ public abstract class MleActor extends Object implements IMleObject, IMleActor
      *
      * @return The actor's associcated role is returned.
      */
-    public MleRole getRole()
+    public IMleRole getRole()
     {
     	return m_role;
     }
@@ -128,7 +128,7 @@ public abstract class MleActor extends Object implements IMleObject, IMleActor
      *
      * @param role The role to be attached to this actor.
      */
-    public void attachRole(MleRole role)
+    public void attachRole(IMleRole role)
     {
 		if (m_role == null)
 	    	m_role = role;

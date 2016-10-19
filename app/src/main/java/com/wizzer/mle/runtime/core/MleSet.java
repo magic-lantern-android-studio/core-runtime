@@ -68,7 +68,7 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
      * This static holds the current set, which is valid during a group
      * load.
      */
-    protected static MleSet g_currentSet = null;
+    protected static IMleSet g_currentSet = null;
 
     /** The collection of "PropChange" event listeners, per property. */
     protected HashMap<String,Vector<IMlePropChangeListener>> m_propChangeListeners;
@@ -81,6 +81,7 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
     	// The current set should be set to null.
     	m_propChangeListeners = new HashMap<String,Vector<IMlePropChangeListener>>();
     }
+
     /**
      * Get the current Set.
      * <p>
@@ -92,7 +93,7 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
      * @return The current Set is returned. <b>null</b> may be returned if no
      * Set has been made current.
      */
-    public static MleSet getCurrentSet()
+    public static IMleSet getCurrentSet()
     {
     	return g_currentSet;
     }
@@ -102,7 +103,7 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
      * 
      * @param set The actor/role behavior policy to set.
      */
-    public static void setCurrentSet(MleSet set)
+    public static void setCurrentSet(IMleSet set)
     {
     	g_currentSet = set;
     }
@@ -122,7 +123,7 @@ public abstract class MleSet extends Object implements IMleObject, IMleSet
      * @throws MleRuntimeException This exception is thrown if the
      * set can not be successfully attach the roles.
      */
-    public abstract void attachRoles(MleRole parent, MleRole child)
+    public abstract void attachRoles(IMleRole parent, IMleRole child)
         throws MleRuntimeException;
 
     /**

@@ -29,5 +29,24 @@
 // Declare package.
 package com.wizzer.mle.runtime.core;
 
+/**
+ * An interface for implementing Magic Lantern Roles.
+ */
 public interface IMleRole
-{}
+{
+    /**
+     * Initialize rendering.
+     *
+     * @throws MleRuntimeException This exception is thrown when there is an issue
+     * with initializing rendering on the Role.
+     */
+    void initRender() throws MleRuntimeException;
+
+    /**
+     * Render the role.
+     *
+     * @throws MleRuntimeException This exception is thrown when an error occurs
+     * while rendering the Role.
+     */
+    void render() throws MleRuntimeException;
+}

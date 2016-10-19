@@ -29,6 +29,9 @@
 // Declare package.
 package com.wizzer.mle.runtime.core;
 
+/**
+ * An interface for implementing Magic Lantern Sets.
+ */
 public interface IMleSet
 {
     /**
@@ -37,7 +40,7 @@ public interface IMleSet
      * @throws MleRuntimeException this exception is thrown if an error occurs while
      * initializing rendering.
      */
-    public void initRender() throws MleRuntimeException;
+    void initRender() throws MleRuntimeException;
 
     /**
      * Tell the set to render itself.
@@ -45,5 +48,5 @@ public interface IMleSet
      * @throws MleRuntimeException This exception is thrown if an error occurs while
      * rendering the Set.
      */
-    public void render() throws MleRuntimeException;
+    void render() throws MleRuntimeException;
 }
