@@ -83,12 +83,14 @@ public class ResourceManagerTest extends TestCase
 	    Log.i(MleTitle.DEBUG_TAG,"*** Test Resource Manager ***");
 	    try
 	    {
+	    	// Note: no way to test returned id, since the value may not be the same across
+			// platform builds.
 	    	int id = ResourceManager.getResourceId(R.drawable.class, "icon");
-	    	TestCase.assertEquals(0x7f020000, id);
+	    	//TestCase.assertEquals(0x7f020000, id);
 	    	id = ResourceManager.getResourceId(R.layout.class, "main");
-	    	TestCase.assertEquals(0x7f030000, id);
+	    	//TestCase.assertEquals(0x7f030000, id);
 	    	id = ResourceManager.getResourceId(R.string.class, "app_name");
-	    	TestCase.assertEquals(0x7f040000, id);
+	    	//TestCase.assertEquals(0x7f040000, id);
 
 	    } catch (MleRuntimeException ex)
 	    {
